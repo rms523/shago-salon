@@ -30,7 +30,8 @@
 
     <link rel="stylesheet" href="static/css/nice-select.css">
 
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+
 
 <!-- Font Awesome --><!-- Bootstrap core CSS -->
 <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
@@ -262,9 +263,10 @@
                         </div>
                     </div>
 
+                        <p id="ErrorMessage" style="color: RED" class="text-center"></p>
 
                         <!-- <form   id="testcollapse" class="collapse"> -->
-                            <form method="POST" action="{% url 'appointment_booking' %}">
+                            <form method="POST" action="{% url 'appointment_booking' %}" id="bookingform">
                                 {% csrf_token %}
                             <div class="form-row">
                                 <div class="form-group offset-md-3 col-md-6">
@@ -290,7 +292,7 @@
                                     <input type="text" name="selected_date" class="form-control inputfield" id="datepicker" placeholder="Date">
                                   </div>
                             </div>
-
+                            <p id="TimeError" style="color: RED" class="text-center"></p>
                             <!-- <div class="form-row">
                                 <div class="form-group offset-md-3 col-md-6">
                                     <input list="timelist" type="text" class="form-control inputfield" id="time" placeholder="Time">
@@ -765,7 +767,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     <script src="static/js/jquery.magnific-popup.min.js"></script>
     <script src="static/js/plugins.js"></script>
 <!--     <script src="static/js/gijgo.min.js"></script>-->
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
 
     <!--contact js-->
     <script src="static/js/contact.js"></script>

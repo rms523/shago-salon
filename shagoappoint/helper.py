@@ -1,3 +1,7 @@
+from datetime import date, datetime
+
+
+
 class Calculations():
     granularity = 15
     start = 480
@@ -57,7 +61,7 @@ class Calculations():
         return available_time_formatted
         # return list(dict.fromkeys(available_time_formatted))
 
-    def get_availability(self, alloted_time_duration, services):
+    def get_availability(self, alloted_time_duration, services, selected_date):
 
         services = services.split(', ')
 
@@ -69,11 +73,39 @@ class Calculations():
             self.remove_after_time(dictionary['alloted_time'], dictionary['alloted_duration'])
 
         print(self.available_time)
+        today = date.today()
+        # print ("today is ", today)
+        # print ("selection is ", selected_date)
+        if today.strftime('%Y-%m-%d') == selected_date:
+            # print ("matched the date: ")
+            current_time = datetime.now().strftime('%H:%M')
+            # print ("Current_time ", current_time)
+            hour, minute = list(map(int, current_time.split(':')))
+
+            converted_time = 60 * hour + ( minute  // 15 ) * 15 + 30
+            # print ("converted_time", converted_time)
+            # print (self.available_time)
+
+            # temp_time_list = []
+            # for time in self.available_time:
+            #     temp_time_list.append(time)
+            #
+            # for time in temp_time_list:
+            #
+            #     if time <= converted_time:
+            #         print("time ", type(time))
+            #         print("converted_time", type(converted_time))
+            #         self.available_time.remove(time)
+            # print (self.available_time)
+
+            self.available_time = [time for time in self.available_time if time > converted_time]
+
         return self.time_conversion()
 
 
     def convert_services_to_time(self, services):
-        services = services.split(', ')
+        print (services)
+        # services = services.split(', ')
 
         for service in services:
             self.total_service_time += self.service_time_mapping[service]

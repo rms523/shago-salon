@@ -20,14 +20,32 @@ $(document).ready(function(){
 
     var selected_services;
     $('.selectpicker').on('changed.bs.select', function () {
+        $("#ErrorMessage").text("");
         selected_services = $(this).siblings('.btn.dropdown-toggle').attr('title');
         console.log(selected_services);
+        $('#datepicker').val('');
         //$('#btnTrigger').click();
     });
 
     $('#datepicker').change(function() {
         var date_select = document.getElementById("datepicker").value;
         //console.log("here");
+
+        if (!selected_services)
+        {
+            console.log("Error");
+            $("#ErrorMessage").text("Error! Please select a service first.");
+            return;
+        }
+
+
+
+
+        else
+        {
+
+
+
         req =  $.ajax({
             url: "date_selected/",
             type: "post",
@@ -44,7 +62,11 @@ $(document).ready(function(){
         });  
     
         $('#myModal').modal('show'); 
-                
+
+       }
+
+
+
         });
 
 
@@ -61,6 +83,41 @@ $(document).ready(function(){
             console.log(option);
         });
 
+    
+    $("#bookingform").validate({
+    ignore: "",
+        rules:{
+            servicelist: "required",
+            time_selected: "required",
+            datepicker: "required",
+            username: {
+                required: true,
+                minlength: 2
+            },
+            phoneno: {
+                required: true,
+                minlength: 10,
+                maxlength: 10
+            }
+        },
+
+     messages: {
+        servicelist: "Please select a service first",
+        time_selected: "No time selected. Please select a time.",
+        datepicker: "No Date Selected",
+        username: {
+            required: "Please enter you name",
+            minlength: "Your name must consist of at lease 2 characters",
+
+        },
+        phoneno: {
+            required: "Please enter you contact number",
+            minlength: "Your number must be 10 digit",
+            maxlength: "Your number must be 10 digit"
+        }
+     }
+
+});
 
 });
 
@@ -75,6 +132,25 @@ function buton(e) {
     alert(e.target.id);
     var time_selected = e.target.id;
     $('#time_selected').val(time_selected);
+
+    var time_selected = $('#time_selected').val();
+    if (!time_selected)
+    {
+        console.log("TimeError");
+        $("#TimeError").text("You did not select time! Please select a date and time for booking.");
+        return;
+    }
+
+    else
+    {
+        $("#TimeError").text("");
+        var time_selected = $('#time_selected').val();
+        var date_selected = $('#datepicker').val();
+        var date_time = date_selected + " " + time_selected;
+        $('#datepicker').val(date_time);
+
+    }
+
   }
 }
 
@@ -122,7 +198,19 @@ function buton(e) {
 
     
 
-
+//jQuery("#bookingform").submit(function (evt) {
+//
+//  //At this point the browser will have performed default validation methods.
+//
+//  //If you want to perform custom validation do it here.
+//  if (jQuery("input[Name='name']").val().length < 4) {
+//    alert("first Input must have 4 characters according to my custom validation!");
+//    evt.preventDefault();
+//    return;
+//  }
+//  alert("Values are correct!");
+//
+//});
 
 
 
