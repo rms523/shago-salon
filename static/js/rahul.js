@@ -3,6 +3,7 @@ $(document).ready(function(){
     date.setDate(date.getDate());
 
     $('#datepicker').datepicker({
+        dayNamesMin: ['SUN', 'MUN', 'TUE', 'WED', 'THU', 'FRI', 'SAT'],
         dateFormat: 'yy-mm-dd',
         minDate: date,
         maxDate: '+4D',
@@ -153,6 +154,11 @@ function buton(e) {
 
   }
 }
+
+//
+//$(document).on("mouseover", "td", function() {
+//    $(this).css({border: 1px})
+//    });
 
 // $('#select1').on("click",'.button', function(event) {
 //     //$("#addvariable").show(400);  //not sure how this relates to the clicked element. 
