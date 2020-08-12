@@ -34,12 +34,19 @@ $(document).ready(function(){
 
         if (!selected_services)
         {
-            console.log("Error");
+
             $("#ErrorMessage").text("Error! Please select a service first.");
+            $('#datepicker').val('');
             return;
         }
 
+        if (selected_services == "Nothing selected")
+        {
 
+            $('#datepicker').val('');
+            $("#ErrorMessage").text("Error! Please select a service first.");
+            return;
+        }
 
 
         else
@@ -62,7 +69,8 @@ $(document).ready(function(){
             }
         });  
     
-        $('#myModal').modal('show'); 
+        //$('#myModal').modal('show');
+        $('#myModal').modal({backdrop: 'static', keyboard: false});
 
        }
 
@@ -75,7 +83,7 @@ $(document).ready(function(){
         $(".btn-group-vertical > button.btn").on("click", function(){
             num = +this.innerHTML;
             console.log("value");
-            alert("Value is " + num);
+            //alert("Value is " + num);
         });
 
 
@@ -84,76 +92,186 @@ $(document).ready(function(){
             console.log(option);
         });
 
-    
-    $("#bookingform").validate({
-    ignore: "",
-        rules:{
-            servicelist: "required",
-            time_selected: "required",
-            datepicker: "required",
-            username: {
-                required: true,
-                minlength: 2
-            },
-            phoneno: {
-                required: true,
-                minlength: 10,
-                maxlength: 10
-            }
-        },
+//
+//    $("#bookingform").validate({
+//    ignore: "",
+//        rules:{
+//            servicelist: "required",
+//            time_selected: "required",
+//            datepicker: "required",
+//            username: {
+//                required: true,
+//                minlength: 2
+//            },
+//            phoneno: {
+//                required: true,
+//                minlength: 10,
+//                maxlength: 10
+//            }
+//        },
+//
+//     messages: {
+//        servicelist: "Please select a service first",
+//        time_selected: "No time selected. Please select a time.",
+//        datepicker: "No Date Selected",
+//        username: {
+//            required: "Please enter you name",
+//            minlength: "Your name must consist of at lease 2 characters",
+//
+//        },
+//        phoneno: {
+//            required: "Please enter you contact number",
+//            minlength: "Your number must be 10 digit",
+//            maxlength: "Your number must be 10 digit"
+//        }
+//     }
+//
+//});
+                  var time_selected = "";
+                  document.getElementById("select1").onclick = buton;
 
-     messages: {
-        servicelist: "Please select a service first",
-        time_selected: "No time selected. Please select a time.",
-        datepicker: "No Date Selected",
-        username: {
-            required: "Please enter you name",
-            minlength: "Your name must consist of at lease 2 characters",
+                  function buton(e) {
+                  if (e.target.tagName == 'BUTTON') {
+                    //alert(e.target.id);
+                    time_selected = e.target.id;
+                  }
+                }
 
-        },
-        phoneno: {
-            required: "Please enter you contact number",
-            minlength: "Your number must be 10 digit",
-            maxlength: "Your number must be 10 digit"
-        }
-     }
+                document.getElementById('time_save').onclick = time_save;
+                function time_save(){
+                    if (!time_selected)
+                    {
+                         $('#datepicker').val("");
+                    }
+                    else
+                    {
+                        //var time_selected = $('#time_selected').val();
+                        var date_selected = $('#datepicker').val();
+                        var date_time = date_selected + " " + time_selected;
+                        $('#time_selected').val(time_selected);
+                        $('#datepicker').val(date_time);
+                    }
+                }
 
+                 $('#bookingform').on('submit', function(e){
+                    e.preventDefault();
+
+                    if (!selected_services)
+                    {
+                        $("#ErrorMessage").text("Please select a service.");
+                        return;
+                    }
+
+                    if (selected_services == "Nothing selected")
+                    {
+                        $("#ErrorMessage").text("Please select a service.");
+                        return;
+                    }
+
+                    var date_select = document.getElementById("datepicker").value;
+
+                    if (!date_select)
+                    {
+                        $("#ErrorMessage").text("Please select a date.");
+                        return;
+                    }
+
+                    var username = $('#username').val();
+                    var len = $('#username').val().length;
+                    if (len >= 20  || len <= 4) {
+                        $("#ErrorMessage").text("Username length must be in between 4 and 20");
+                        return;
+                    }
+
+                    var phoneno = $('#phoneno').val();
+                    len = $('#phoneno').val().length;
+                    if (len != 10) {
+                        $("#ErrorMessage").text("Contact number must be 10 digit long.");
+                        return;
+                    }
+
+
+                    $.ajax({
+                    url: "appointment_booking/",
+                    type: "post",
+                    cache: false,
+                    dataType: 'json',
+                    data: {'selected_date': date_select, 'services': selected_services, 'selected_time': time_selected, 'username': username, 'phoneno': phoneno,  'csrfmiddlewaretoken': '{{ csrf_token }}'},
+                    success: function(response){
+                        console.log(response['html']);
+                        //$('#select1').html(response['html'])
+                        $('#status').html(response['html'])
+                    },
+                     error: function(response){
+                        console.log("error");
+                    }
+                });
+
+
+                  // this.submit();
+                  $('#otp_verification').modal({backdrop: 'static', keyboard: false});
+                   //$("#otp_verification").show();
+                    //return;
+                });
+
+
+                document.getElementById('verify_otp').onclick = verification_otp;
+                function verification_otp() {
+
+                    user_otp = $('#OTP').val();
+                    console.log('user_otp');
+                    $.ajax({
+                    url: "verify_otp/",
+                    type: "post",
+                    cache: false,
+                    dataType: 'json',
+                    data: {'OTP': user_otp, 'csrfmiddlewaretoken': '{{ csrf_token }}'},
+                    success: function(response){
+                        //console.log(response['html']['status']);
+                        //$('#select1').html(response['html'])
+                        $('#status').html(response['html'])
+                    },
+                     error: function(response){
+                        console.log("error");
+                    }
+                });
+
+
+                }
 });
-
-});
-
-window.onload = myMain;
-
-function myMain() {
-  document.getElementById("select1").onclick = buton;
-}
-
-function buton(e) {
-  if (e.target.tagName == 'BUTTON') {
-    alert(e.target.id);
-    var time_selected = e.target.id;
-    $('#time_selected').val(time_selected);
-
-    var time_selected = $('#time_selected').val();
-    if (!time_selected)
-    {
-        console.log("TimeError");
-        $("#TimeError").text("You did not select time! Please select a date and time for booking.");
-        return;
-    }
-
-    else
-    {
-        $("#TimeError").text("");
-        var time_selected = $('#time_selected').val();
-        var date_selected = $('#datepicker').val();
-        var date_time = date_selected + " " + time_selected;
-        $('#datepicker').val(date_time);
-
-    }
-
-  }
-}
+//
+//window.onload = myMain;
+//
+//function myMain() {
+//  document.getElementById("select1").onclick = buton;
+//}
+//
+//function buton(e) {
+//  if (e.target.tagName == 'BUTTON') {
+//    //alert(e.target.id);
+//    var time_selected = e.target.id;
+//    $('#time_selected').val(time_selected);
+//
+//    var time_selected = $('#time_selected').val();
+//    if (!time_selected)
+//    {
+//        console.log("TimeError");
+//        $("#TimeError").text("You did not select time! Please select a date and time for booking.");
+//        return;
+//    }
+//
+//    else
+//    {
+//        $("#TimeError").text("");
+//        var time_selected = $('#time_selected').val();
+//        var date_selected = $('#datepicker').val();
+//        var date_time = date_selected + " " + time_selected;
+//        $('#datepicker').val(date_time);
+//
+//    }
+//
+//  }
+//}
 
 //
 //$(document).on("mouseover", "td", function() {

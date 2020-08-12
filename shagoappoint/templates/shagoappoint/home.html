@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-     <link rel="manifest" href="site.webmanifest">
+<!--     <link rel="manifest" href="site.webmanifest">-->
     <link rel="shortcut icon" type="image/x-icon" href="static/img/favicon.png">
     <!-- Place favicon.ico in the root directory -->
 
@@ -24,7 +24,7 @@
     <link rel="stylesheet" href="static/css/animate.css">
 
     <link rel="stylesheet" href="static/css/magnific-popup.css">
-     <link rel="stylesheet" href="css/responsive.css">
+<!--     <link rel="stylesheet" href="css/responsive.css">-->
     <link rel="stylesheet" href="static/css/themify-icons.css">
     <link rel="stylesheet" href="static/css/slicknav.css">
 
@@ -672,9 +672,6 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
       <div class="modal-content">
         <div class="modal-header">
           <h4 class="modal-title" id="exampleModalLongTitle">Shago</h4>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
         </div>
         <div id="select-time" class="modal-body">
             <div class="container-fluid text-center">
@@ -687,57 +684,56 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
+
+          <button type="button" id="time_save" class="btn btn-primary" data-dismiss="modal">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<div class="modal fade" id="otp_verification" tabindex="-1" role="dialog" aria-labelledby="myModelTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" id="exampleModalLongTitle_otp">Shago</h4>
+        </div>
+
+          <div class="row">
+            <div class="col-xl-6 col-md-6 offset-md-3 ">
+                <p id="status" style="color: RED" class="text-center"></p>
+
+            </div>
+            <div class="col-xl-6 col-md-6 offset-md-3 ">
+                <label> Enter the otp sent to your contact number. </label>
+                <input id="OTP" type="text" placeholder="OTP">
+            </div>
+
+
+        </div>
+
+        <div class="modal-footer">
+           <button type="button" id="verify_otp" class="btn btn-primary">Verify</button>
+<!--          <button type="button" id="verify_otp" class="btn btn-primary" data-dismiss="modal">Verify</button>-->
         </div>
       </div>
     </div>
   </div>
 
 
-    <!-- form itself end-->
+<!--    &lt;!&ndash; form itself end&ndash;&gt;-->
 <!--    <form id="test-form" class="white-popup-block mfp-hide" action="" method="POST">-->
 <!--            <div class="popup_box ">-->
 <!--                    <div class="popup_inner">-->
-<!--                        <h3>Make an Appointment</h3>-->
+<!--                        <h3>Just One more step.</h3>-->
 <!--                        <form action="#">-->
 <!--                            <div class="row">-->
-<!--                                <div class="col-xl-6 col-md-6">-->
-<!--                                    <input id="datepicker12" class="inp" placeholder="Date">-->
-<!--                                </div>-->
-<!--                                <div class="col-xl-6 col-md-6">-->
-<!--                                    <select class="form-control wide" id="default-select" multiple="multiple">-->
-<!--                                        <option value="0">Hair Cutting</option>-->
-<!--                                        <option value="1">Shaving</option>-->
-<!--                                        <option value="2">Message</option>-->
-<!--                                        <option value="3">Spa</option>-->
-<!--                                    </select>-->
-<!--                                </div>-->
-<!--                                <div class="col-xl-6 col-md-6">-->
-<!--                                    <input id="timepicker" placeholder="time">-->
+
+<!--                                <p id="status" style="color: RED" class="text-center"></p>-->
+<!--                                <label> Enter the otp sent to your contact number. </label>-->
+<!--                                <div class="col-xl-6 col-md-6 off">-->
+<!--                                    <input id="OTP" type="text" placeholder="OTP">-->
 <!--                                </div>-->
 
-<!--                                &lt;!&ndash;-->
-<!--                                <div class="col-xl-6 col-md-6">-->
-<!--                                    <select class="form-select wide" id="default-select" class="">-->
-<!--                                        <option data-display="Choose Barbers">Choose Barbers</option>-->
-<!--                                        <option value="1">Zaki</option>-->
-<!--                                        <option value="2">Ronky</option>-->
-<!--                                        <option value="3">kalu</option>-->
-<!--                                    </select>-->
-<!--                                </div>-->
-<!--                            &ndash;&gt;-->
-<!--                                <div class="col-xl-6 col-md-6">-->
-<!--                                    <input id="username" type="text" placeholder="Your name">-->
-<!--                                </div>-->
-<!--                                <div class="col-xl-6 col-md-6">-->
-<!--                                    <input id="phoneno" type="text" placeholder="Phone no">-->
-<!--                                </div>-->
-<!--                                &lt;!&ndash;-->
-<!--                                <div class="col-xl-12">-->
-<!--                                    <input type="email" placeholder="Your email">-->
-<!--                                </div>-->
-<!--                                &ndash;&gt;-->
 <!--                                <div class="col-xl-12">-->
 <!--                                    <button type="submit" class="boxed-btn3">Submit</button>-->
 <!--                                </div>-->

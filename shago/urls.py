@@ -21,5 +21,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', shagoappoint.views.home, name='home' ),
     path('date_selected/', shagoappoint.views.date_selected, name='date_selected'),
-    path('appointment_booking/', shagoappoint.views.appointment_booking, name='appointment_booking')
+    path('appointment_booking/', shagoappoint.views.appointment_booking, name='appointment_booking'),
+    path('verify_otp/', shagoappoint.views.verify_otp, name='verify_otp')
 ]

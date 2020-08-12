@@ -7,6 +7,12 @@ from django.http import HttpResponse, JsonResponse, HttpResponseRedirect
 from django.template.loader import render_to_string
 # Create your views here.
 
+import math, random
+
+OTP = ''
+appointment_object = ''
+
+
 def get_booking(selected_date):
     alloted_time_duration = []
     # TODO check bookings.all
@@ -43,7 +49,41 @@ def date_selected(request):
         #return jsonify({'data': render_template('middleman.html', available_time=available_time)})
 
 
+def generateOTP():
 
+    # Declare a string variable
+    # which stores all string
+    string = '0123456789'
+    OTP_GEN = ''
+    length = len(string)
+    for i in range(4):
+        OTP_GEN += string[math.floor(random.random() * length)]
+    global OTP
+    OTP = OTP_GEN
+    return OTP
+
+
+@csrf_exempt
+def verify_otp(request):
+    if request.is_ajax():
+        if 'OTP' in request.POST:
+            received_otp = request.POST['OTP']
+            print ("received_otp ", received_otp)
+
+        else:
+            received_otp = ''
+            print ("error in receiving otp: ")
+
+
+        global OTP
+        global appointment_object
+        if received_otp == OTP:
+            appointment_object.save()
+            return JsonResponse({'status': 'success'})
+        else:
+            return JsonResponse({'status': 'error'})
+
+@csrf_exempt
 def appointment_booking(request):
     selected_date = request.POST['selected_date'].split(" ")[0]
     services = request.POST.getlist('services')
@@ -51,16 +91,34 @@ def appointment_booking(request):
     selected_time = request.POST['selected_time']
     username = request.POST['username']
     phoneno = request.POST['phoneno']
-    calculation = Calculations()
-    alloted_duration = calculation.convert_services_to_time(services)
-    time, format = list(selected_time.split(" "))
-    hours, minutes = list(map(int, time.split(".")))
-    if format=='AM':
-        selected_time = 60 * hours + minutes
-    if format=='PM':
-        selected_time = 60 * hours + minutes + 12 * 60
 
-    booking = appointment(username=username, contact_no=phoneno, date=selected_date, alloted_time=selected_time, alloted_duration=alloted_duration )
-    booking.save()
-    #return render(request, 'shagoappoint/home.html')
-    return redirect('home')
+    if request.is_ajax():
+
+        services = services[0].split(',')
+        services = [x.strip() for x in services]
+        print("services list is: ", services)
+        calculation = Calculations()
+        alloted_duration = calculation.convert_services_to_time(services)
+        time, format = list(selected_time.split(" "))
+        hours, minutes = list(map(int, time.split(".")))
+        if format=='AM':
+            selected_time = 60 * hours + minutes
+        if format=='PM':
+            selected_time = 60 * hours + minutes + 12 * 60
+
+        generateOTP()
+
+        #booking = appointment(username=username, contact_no=phoneno, date=selected_date, alloted_time=selected_time, alloted_duration=alloted_duration )
+        #booking.save()
+        global appointment_object
+        global OTP
+        print ("OTP is: ", OTP)
+        appointment_object = appointment(username=username, contact_no=phoneno, date=selected_date, alloted_time=selected_time, alloted_duration=alloted_duration, OTP=OTP)
+
+        #return render(request, 'shagoappoint/home.html')
+        #return redirect('home')
+
+        return JsonResponse({'status': 'success'})
+
+    else:
+        return JsonResponse({'status': 'failed'})
