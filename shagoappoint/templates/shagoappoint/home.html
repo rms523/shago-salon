@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="no-js" lang="zxx">
+<html class="no-js" lang="en">
 {% load static %}
 <head>
     <meta charset="utf-8">
@@ -155,13 +155,17 @@
                             </div>
         <br/>
 
-                        <p id="ErrorMessage" style="color: RED" class="text-center"></p>
+
+                        <div class="col-xl-8 offset-xl-2">
+                        <div id="response" class="text-center"></div>
+                            </div>
 
                         <!-- <form   id="testcollapse" class="collapse"> -->
+
                             <form method="POST" action="{% url 'appointment_booking' %}" id="bookingform">
                                 {% csrf_token %}
                             <div class="form-row">
-                                <div class="form-group offset-md-3 col-md-6">
+                                <div class="form-group offset-xl-3 col-xl-6">
                                     <select id="servicelist" name="services" class="form-control selectpicker" sdata-size="6" data-style="btn-success" data-width="100%" multiple data-live-search="true" multiple data-actions-box="true" title="Select a Service" data-header="Select a Service"  >
                                         <option value="Hair Cutting">Hair Cutting</option>
                                         <option value="Shaving">Shaving</option>
@@ -174,13 +178,13 @@
                                 <br \>
 
                                 <div class="form-row .d-none">
-                                <div class="form-group offset-md-3 col-md-6">
+                                <div class="form-group offset-xl-3 col-xl-6">
                                     <input type="hidden" name="selected_time" class="form-control inputfield" id="time_selected" value="" autocomplete="off">
                                 </div>
                             </div>
 
                             <div class="form-row">
-                                <div class="form-group offset-md-3 col-md-6">
+                                <div class="form-group offset-xl-3 col-xl-6">
                                     <input type="text" name="selected_date" class="form-control inputfield" id="datepicker" placeholder="Date" autocomplete="off">
                                   </div>
                             </div>
@@ -199,12 +203,12 @@
                                   </div>
                             </div> -->
                             <div class="form-row">
-                                <div class="form-group offset-md-3 col-md-6">
+                                <div class="form-group offset-xl-3 col-xl-6">
                                     <input type="text" name="username" class="form-control inputfield" id="username" placeholder="Your Name" autocomplete="off">
                                   </div>
                             </div>
                             <div class="form-row">
-                                <div class="form-group offset-md-3  col-md-6">
+                                <div class="form-group offset-xl-3  col-xl-6">
                                     <input type="text" name="phoneno" class="form-control inputfield" id="phoneno" placeholder="contact number" autocomplete="off">
                                   </div>
                             </div>
@@ -705,7 +709,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
         <div id="select-time" class="modal-body">
             <div class="container-fluid text-center">
                 <h2 class="text-center">Select Time</h2>
-                <div id="select1" class="btn-group-vertical btn-group-lg">
+                <div id="select1" class="btn-group-vertical btn-group-lg" style="width:80%">
 
 
                 </div>
@@ -755,7 +759,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
         <div class="modal-header">
           <h4 class="modal-title" id="exampleModalLongTitle_otp">Shago</h4>
         </div>
-
+<div class="container">
           <div class="row">
             <div class="col-xl-6 col-md-6 offset-md-3 ">
                 <p id="status" style="color: RED" class="text-center"></p>
@@ -766,15 +770,15 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 <!--              </div>-->
 
 
-              <div class="col-xl-2 col-lg-2 col-sm-2 col-md-2 offset-sm-5 offset-md-5 offset-xl-5 offset-lg-5">
-                <img src="static/img/banner/correct.png"  class="img-rounded img-fluid"  alt="Appointment Success!">
+              <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 offset-5 offset-sm-5 offset-md-5 offset-lg-5 offset-xl-5">
+                <img src="static/img/banner/correct.png"  class="w-100 img-rounded img-fluid"  alt="Appointment Success!">
               </div>
 
             <div class="col-xl-12 col-md-12">
                 <h3 class="text-center"> Your Appointment is successfull! </h3>
             </div>
         </div>
-
+</div>
         <div class="modal-footer">
            <button type="button" id="verify_otp" class="btn btn-primary" data-dismiss="modal">Close</button>
 <!--          <button type="button" id="verify_otp" class="btn btn-primary" data-dismiss="modal">Verify</button>-->

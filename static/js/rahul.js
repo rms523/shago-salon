@@ -12,7 +12,16 @@ $(document).ready(function(){
     //     icons: {
     //      rightIcon: '<span class="fa fa-caret-down"></span>'
     //  }
+        beforeShow: function (input, inst) {
+      setTimeout(function() {
+        inst.dpDiv.outerWidth($('#datepicker').outerWidth());
+      }, 0);},
+
     }).attr('readonly', 'true');
+
+     $('div.ui-datepicker').on('click',function(){
+    $(this).outerWidth($('#datepicker').outerWidth());
+  });
 
 
     $('select').selectpicker({
@@ -158,13 +167,13 @@ $(document).ready(function(){
 
                     if (!selected_services)
                     {
-                        $("#ErrorMessage").text("Please select a service.");
+                        generate_error("Please select a service.");
                         return;
                     }
 
                     if (selected_services == "Nothing selected")
                     {
-                        $("#ErrorMessage").text("Please select a service.");
+                        generate_error("Please select a service.");
                         return;
                     }
 
@@ -172,21 +181,21 @@ $(document).ready(function(){
 
                     if (!date_select)
                     {
-                        $("#ErrorMessage").text("Please select a date.");
+                        generate_error("Please select a date.");
                         return;
                     }
 
                     var username = $('#username').val();
                     var len = $('#username').val().length;
-                    if (len >= 20  || len <= 4) {
-                        $("#ErrorMessage").text("Username length must be in between 4 and 20");
+                    if (len > 20  || len < 4) {
+                        generate_error("Username length must be in between 4 and 20");
                         return;
                     }
 
                     var phoneno = $('#phoneno').val();
                     len = $('#phoneno').val().length;
                     if (len != 10) {
-                        $("#ErrorMessage").text("Contact number must be 10 digit long.");
+                        generate_error("Contact number must be 10 digit long.");
                         return;
                     }
 
@@ -256,6 +265,29 @@ $(document).ready(function(){
 //
 //                }
 });
+
+
+function generate_error(e)
+{
+     $("#response").animate({
+        height: '+=72px'
+    }, 300);
+   $('<div class="alert alert-danger">' +
+            '<button type="button" class="close" data-dismiss="alert">' +
+            '&times;</button>' + e + '</div>').hide().appendTo('#response').fadeIn(1000);
+
+  $(".alert").delay(3000).fadeOut(
+  "normal",
+  function(){
+    $(this).remove();
+  });
+
+   $("#response").delay(4000).animate({
+        height: '-=72px'
+    }, 300);
+
+}
+
 //
 //window.onload = myMain;
 //

@@ -5918,7 +5918,7 @@ display:none;
   overflow-y: initial !important
 }
 .modal-body{
-  height: 500px;
+  height: 20em;
   overflow-y: auto;
 }
 
@@ -5952,8 +5952,12 @@ display:none;
 .btn-space {
   /* margin-right: -30px;*/
   margin-left: 0px;
-  margin-right: 380px;
+/*  margin-right: 380px;
   margin-bottom: 10px;
+*/
+
+  /*margin-right: 200%;*/
+  margin-bottom: 5%;
 }
 
 .close {
@@ -6012,7 +6016,7 @@ display:none;
 
 
 .ui-datepicker {
-  width: 28.5%;
+  /*width: 28.5%;*/
   font-family: "Noto Sans", san-serif !important;
   text-transform: uppercase;
 }
@@ -6073,10 +6077,20 @@ display:none;
     background: #44a0ff;
     color: #fff;
     border: 1px solid #fff;
-    border-top-left-radius: .25rem;
+    /*border-radius: .25rem;
     border-bottom-left-radius: .25rem;
     border-top-right-radius: .25rem;
-    border-bottom-right-radius: .25rem;
+    border-bottom-right-radius: .25rem;*/
+}
+
+.close {
+    color: #000;
+    opacity: 1;
+}
+
+.img-fluid {
+    max-width: 100%;
+    max-height: 100%;
 }
 
 /*
