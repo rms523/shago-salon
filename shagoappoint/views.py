@@ -9,8 +9,8 @@ from django.template.loader import render_to_string
 
 import math, random
 
-OTP = ''
-appointment_object = ''
+# OTP = ''
+# appointment_object = ''
 
 
 def get_booking(selected_date):
@@ -35,6 +35,7 @@ def date_selected(request):
     selected_date = request.POST['date_select']
     services = request.POST['services']
     print("services list is: ", services)
+    print("slected dates is: ", selected_date)
     #bookings = appointment.objects.all
     if request.is_ajax():
 
@@ -49,39 +50,39 @@ def date_selected(request):
         #return jsonify({'data': render_template('middleman.html', available_time=available_time)})
 
 
-def generateOTP():
-
-    # Declare a string variable
-    # which stores all string
-    string = '0123456789'
-    OTP_GEN = ''
-    length = len(string)
-    for i in range(4):
-        OTP_GEN += string[math.floor(random.random() * length)]
-    global OTP
-    OTP = OTP_GEN
-    return OTP
-
-
-@csrf_exempt
-def verify_otp(request):
-    if request.is_ajax():
-        if 'OTP' in request.POST:
-            received_otp = request.POST['OTP']
-            print ("received_otp ", received_otp)
-
-        else:
-            received_otp = ''
-            print ("error in receiving otp: ")
+# def generateOTP():
+#
+#     # Declare a string variable
+#     # which stores all string
+#     string = '0123456789'
+#     OTP_GEN = ''
+#     length = len(string)
+#     for i in range(4):
+#         OTP_GEN += string[math.floor(random.random() * length)]
+#     global OTP
+#     OTP = OTP_GEN
+#     return OTP
 
 
-        global OTP
-        global appointment_object
-        if received_otp == OTP:
-            appointment_object.save()
-            return JsonResponse({'status': 'success'})
-        else:
-            return JsonResponse({'status': 'error'})
+# @csrf_exempt
+# def verify_otp(request):
+#     if request.is_ajax():
+#         if 'OTP' in request.POST:
+#             received_otp = request.POST['OTP']
+#             print ("received_otp ", received_otp)
+#
+#         else:
+#             received_otp = ''
+#             print ("error in receiving otp: ")
+#
+#
+#         global OTP
+#         global appointment_object
+#         if received_otp == OTP:
+#             appointment_object.save()
+#             return JsonResponse({'status': 'success'})
+#         else:
+#             return JsonResponse({'status': 'error'})
 
 @csrf_exempt
 def appointment_booking(request):
@@ -106,19 +107,20 @@ def appointment_booking(request):
         if format=='PM':
             selected_time = 60 * hours + minutes + 12 * 60
 
-        generateOTP()
+        # generateOTP()
 
-        #booking = appointment(username=username, contact_no=phoneno, date=selected_date, alloted_time=selected_time, alloted_duration=alloted_duration )
-        #booking.save()
-        global appointment_object
-        global OTP
-        print ("OTP is: ", OTP)
-        appointment_object = appointment(username=username, contact_no=phoneno, date=selected_date, alloted_time=selected_time, alloted_duration=alloted_duration, OTP=OTP)
-
-        #return render(request, 'shagoappoint/home.html')
+        booking = appointment(username=username, contact_no=phoneno, date=selected_date, alloted_time=selected_time, alloted_duration=alloted_duration )
+        booking.save()
+        # global appointment_object
+        # global OTP
+        # print ("OTP is: ", OTP)
+        # appointment_object = appointment(username=username, contact_no=phoneno, date=selected_date, alloted_time=selected_time, alloted_duration=alloted_duration, OTP=OTP)
+        #
+        # #return render(request, 'shagoappoint/home.html')
         #return redirect('home')
-
         return JsonResponse({'status': 'success'})
 
-    else:
-        return JsonResponse({'status': 'failed'})
+    #     return JsonResponse({'status': 'success'})
+    #
+    # else:
+    #     return JsonResponse({'status': 'failed'})

@@ -1157,7 +1157,7 @@ h3 {
 }
 
 /* line 11, ../../Arafath/CL/CL september/205. Barber/HTML/scss/_slider.scss */
-.slider_area .single_slider .slider_text h3 {
+/*.slider_area .single_slider .slider_text h3 {
   color: #ffffff;
   font-family: "Playfair Display", serif;
   font-size: 80px;
@@ -1168,6 +1168,21 @@ h3 {
   margin: 20px 0 16px 0;
   line-height: 90px;
 }
+
+*/
+.service_area .slider_text h3 {
+  color: #ffffff;
+  font-family: "Playfair Display", serif;
+  font-size: 80px;
+  text-transform: capitalize;
+  letter-spacing: 2px;
+  font-weight: 900;
+  margin-bottom: 4px;
+  margin: 20px 0 16px 0;
+  line-height: 90px;
+}
+
+
 
 @media (max-width: 767px) {
   /* line 11, ../../Arafath/CL/CL september/205. Barber/HTML/scss/_slider.scss */
@@ -1195,7 +1210,19 @@ h3 {
 }
 
 /* line 35, ../../Arafath/CL/CL september/205. Barber/HTML/scss/_slider.scss */
+/*
 .slider_area .single_slider .slider_text p {
+  font-size: 24px;
+  font-weight: 400;
+  color: #ffffff;
+  margin-bottom: 0;
+  margin-top: 0;
+  display: inline-block;
+  position: relative;
+} */
+
+
+.service_area .slider_text p {
   font-size: 24px;
   font-weight: 400;
   color: #ffffff;
@@ -1206,7 +1233,7 @@ h3 {
 }
 
 /* line 43, ../../Arafath/CL/CL september/205. Barber/HTML/scss/_slider.scss */
-.slider_area .single_slider .slider_text p::before, .slider_area .single_slider .slider_text p::after {
+.service_area  .slider_text p::before, .service_area  .slider_text p::after {
   position: absolute;
   background: #BC9321;
   width: 50px;
@@ -1217,7 +1244,7 @@ h3 {
 }
 
 /* line 52, ../../Arafath/CL/CL september/205. Barber/HTML/scss/_slider.scss */
-.slider_area .single_slider .slider_text p::before {
+.service_area  .slider_text p::before {
   left: 0;
   left: -70px;
 }
@@ -1764,7 +1791,7 @@ h3 {
 .service_area::after {
   position: absolute;
   content: "";
-  background-image: url(../img/banner/banner_service.png);
+  background-image: url(../img/banner/banner.png);
   height: 900px;
   left: 0;
   right: 0;

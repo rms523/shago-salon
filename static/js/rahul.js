@@ -201,6 +201,11 @@ $(document).ready(function(){
                         console.log(response['html']);
                         //$('#select1').html(response['html'])
                         $('#status').html(response['html'])
+                        $('#otp_verification').modal();
+
+
+//                        $('.selectpicker').selectpicker("destroy");
+//                        $('.selectpicker').selectpicker("refresh");
                     },
                      error: function(response){
                         console.log("error");
@@ -209,35 +214,47 @@ $(document).ready(function(){
 
 
                   // this.submit();
-                  $('#otp_verification').modal({backdrop: 'static', keyboard: false});
+                  //$('#otp_verification').modal({backdrop: 'static', keyboard: false});
                    //$("#otp_verification").show();
                     //return;
+
                 });
 
 
                 document.getElementById('verify_otp').onclick = verification_otp;
                 function verification_otp() {
 
-                    user_otp = $('#OTP').val();
-                    console.log('user_otp');
-                    $.ajax({
-                    url: "verify_otp/",
-                    type: "post",
-                    cache: false,
-                    dataType: 'json',
-                    data: {'OTP': user_otp, 'csrfmiddlewaretoken': '{{ csrf_token }}'},
-                    success: function(response){
-                        //console.log(response['html']['status']);
-                        //$('#select1').html(response['html'])
-                        $('#status').html(response['html'])
-                    },
-                     error: function(response){
-                        console.log("error");
-                    }
-                });
-
-
+                        $('#bookingform')[0].reset();
+                        //$('.selectpicker').empty();
+                        $(".selectpicker").selectpicker('refresh').empty();
+                        location.reload();
                 }
+
+
+
+//                document.getElementById('verify_otp').onclick = verification_otp;
+//                function verification_otp() {
+//
+//                    user_otp = $('#OTP').val();
+//                    console.log('user_otp');
+//                    $.ajax({
+//                    url: "verify_otp/",
+//                    type: "post",
+//                    cache: false,
+//                    dataType: 'json',
+//                    data: {'OTP': user_otp, 'csrfmiddlewaretoken': '{{ csrf_token }}'},
+//                    success: function(response){
+//                        //console.log(response['html']['status']);
+//                        //$('#select1').html(response['html'])
+//                        $('#status').html(response['html'])
+//                    },
+//                     error: function(response){
+//                        console.log("error");
+//                    }
+//                });
+//
+//
+//                }
 });
 //
 //window.onload = myMain;
