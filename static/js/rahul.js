@@ -201,7 +201,7 @@ $(document).ready(function(){
                         console.log(response['html']);
                         //$('#select1').html(response['html'])
                         $('#status').html(response['html'])
-                        $('#otp_verification').modal();
+                        $('#otp_verification').modal({backdrop: 'static', keyboard: false});
 
 
 //                        $('.selectpicker').selectpicker("destroy");
