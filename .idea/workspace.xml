@@ -11,6 +11,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="293c9458-d678-42b8-97f6-c93933a6a6ab" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shagoappoint/templates/shagoappoint/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/shagoappoint/templates/shagoappoint/home.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -40,7 +41,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="TERMINAL_CUSTOM_COMMANDS_GOT_IT" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/static/img/banner" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../gst-billing-and-Invoice" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
   </component>
@@ -78,6 +79,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="459" y="211" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1594990943016">
@@ -93,11 +95,11 @@
       <screen x="0" y="30" width="1920" height="1050" />
     </state>
     <state x="719" y="425" width="472" height="262" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.30.1920.1050/1920.0.1920.1080@0.30.1920.1050" timestamp="1594893630128" />
-    <state x="765" y="315" width="424" height="482" key="FileChooserDialogImpl" timestamp="1597321850460">
+    <state x="765" y="315" width="424" height="482" key="FileChooserDialogImpl" timestamp="1597936928567">
       <screen x="53" y="28" width="1867" height="1052" />
     </state>
     <state x="732" y="316" width="424" height="487" key="FileChooserDialogImpl/0.30.1920.1050/1920.0.1920.1080@0.30.1920.1050" timestamp="1594886792146" />
-    <state x="765" y="315" width="424" height="482" key="FileChooserDialogImpl/1920.0.1920.1080/53.28.1867.1052@53.28.1867.1052" timestamp="1597321850460" />
+    <state x="765" y="315" width="424" height="482" key="FileChooserDialogImpl/1920.0.1920.1080/53.28.1867.1052@53.28.1867.1052" timestamp="1597936928567" />
     <state x="651" y="217" width="992" height="733" key="SettingsEditor" timestamp="1597322710292">
       <screen x="53" y="28" width="1867" height="1052" />
     </state>
