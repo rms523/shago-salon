@@ -10,3 +10,4 @@ class appointment(models.Model):
     date = models.DateField()
     alloted_time = models.PositiveSmallIntegerField(default=0)
     alloted_duration = models.PositiveSmallIntegerField(default=0)
+    worker = models.CharField(max_length=2)

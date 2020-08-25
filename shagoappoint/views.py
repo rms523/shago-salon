@@ -10,7 +10,6 @@ from django.template.loader import render_to_string
 import math, random
 
 # OTP = ''
-# appointment_object = ''
 
 
 def get_booking(selected_date):
@@ -21,7 +20,7 @@ def get_booking(selected_date):
         #booking.date.strftime('%Y-%m-%d')
         if booking.date.strftime('%Y-%m-%d') == selected_date:
             #print(booking.date, selected_date.split(" ")[0])
-            dictionary = {'alloted_time': booking.alloted_time, 'alloted_duration': booking.alloted_duration}
+            dictionary = {'alloted_time': booking.alloted_time, 'alloted_duration': booking.alloted_duration, 'worker': booking.worker}
             alloted_time_duration.append(dictionary)
     #print (alloted_time_duration)
     return alloted_time_duration
@@ -84,6 +83,20 @@ def date_selected(request):
 #         else:
 #             return JsonResponse({'status': 'error'})
 
+def is_worker_busy(worker, alloted_time, alloted_duration, selected_date):
+    work_force = get_booking(selected_date)
+    for appointment in work_force:
+        if appointment['worker'] == worker:
+            w_alloted_time = appointment['alloted_time']
+            w_alloted_duration = appointment['alloted_duration']
+
+            if (w_alloted_time <= alloted_time and alloted_time < (w_alloted_time + w_alloted_duration)) or (
+                    w_alloted_time <= (alloted_time + alloted_duration) and (w_alloted_time + w_alloted_duration) > (
+                    alloted_time + alloted_duration)):
+                return True
+
+    return False
+
 @csrf_exempt
 def appointment_booking(request):
     selected_date = request.POST['selected_date'].split(" ")[0]
@@ -109,8 +122,13 @@ def appointment_booking(request):
 
         # generateOTP()
 
-        booking = appointment(username=username, contact_no=phoneno, date=selected_date, alloted_time=selected_time, alloted_duration=alloted_duration )
-        booking.save()
+        if not is_worker_busy('W1', selected_time, alloted_duration, selected_date):
+
+            booking = appointment(username=username, contact_no=phoneno, date=selected_date, alloted_time=selected_time, alloted_duration=alloted_duration, worker='W1')
+            booking.save()
+        else:
+            booking = appointment(username=username, contact_no=phoneno, date=selected_date, alloted_time=selected_time, alloted_duration=alloted_duration, worker='W2')
+            booking.save()
         # global appointment_object
         # global OTP
         # print ("OTP is: ", OTP)

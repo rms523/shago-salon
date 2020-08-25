@@ -11,7 +11,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="293c9458-d678-42b8-97f6-c93933a6a6ab" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/shagoappoint/templates/shagoappoint/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/shagoappoint/templates/shagoappoint/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shagoappoint/helper.py" beforeDir="false" afterPath="$PROJECT_DIR$/shagoappoint/helper.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shagoappoint/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/shagoappoint/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shagoappoint/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/shagoappoint/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,10 +112,14 @@
       <screen x="53" y="28" width="1867" height="1052" />
     </state>
     <state x="755" y="452" width="443" height="174" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/1920.0.1920.1080/53.28.1867.1052@53.28.1867.1052" timestamp="1597327890570" />
-    <state x="649" y="239" width="672" height="678" key="search.everywhere.popup" timestamp="1594991864888">
+    <state x="667" y="88" width="638" height="903" key="find.popup" timestamp="1598330328400">
+      <screen x="53" y="28" width="3787" height="1052" />
+    </state>
+    <state x="667" y="88" width="638" height="903" key="find.popup/53.28.3787.1052@53.28.3787.1052" timestamp="1598330328400" />
+    <state x="649" y="239" width="672" height="678" key="search.everywhere.popup" timestamp="1598182475492">
       <screen x="53" y="28" width="1867" height="1052" />
     </state>
-    <state x="649" y="239" width="672" height="678" key="search.everywhere.popup/1920.0.1920.1080/53.28.1867.1052@53.28.1867.1052" timestamp="1594991864888" />
+    <state x="649" y="239" width="672" height="678" key="search.everywhere.popup/1920.0.1920.1080/53.28.1867.1052@53.28.1867.1052" timestamp="1598182475492" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

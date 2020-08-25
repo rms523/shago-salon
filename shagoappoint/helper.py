@@ -9,21 +9,53 @@ class Calculations():
     available_time = [x for x in range(start, end, 15)]
     service_time_mapping = {'Hair Cutting': 15, 'Shaving': 15, 'Message': 15, 'Spa': 15}
     total_service_time = 0
+    # work_force = 4
+    # work_force_remaining = [4 for x in range(56)]
 
-    def remove_before_time(self, alloted_time):
+    def is_worker_busy(self, work_force, worker, alloted_time, alloted_duration):
+
+
+        for appointment in work_force:
+
+            if appointment['worker'] == worker:
+
+                w_alloted_time = appointment['alloted_time']
+                w_alloted_duration = appointment['alloted_duration']
+
+                if (w_alloted_time <= alloted_time and alloted_time < (w_alloted_time + w_alloted_duration)) or (w_alloted_time  <= (alloted_time + alloted_duration) and (w_alloted_time + w_alloted_duration) > (alloted_time + alloted_duration)):
+                    print(appointment['worker'])
+                    return True
+
+        return False
+
+
+    def remove_before_time(self, alloted_time, alloted_duration, work_force):
         total_remove_count = self.total_service_time // self.granularity
         # print ("total_remove_count: ", total_remove_count)
+        worker = ''
         while total_remove_count > 0:
             if alloted_time in self.available_time:
                 # print ("available")
-                self.available_time.remove(alloted_time)
+                #get the index of workforceremaining
+                #item_index = self.available_time.index(alloted_time)
+                if not self.is_worker_busy(work_force, 'W1', alloted_time, alloted_duration):
+                    worker = 'W1'
+
+                elif not self.is_worker_busy(work_force, 'W2', alloted_time, alloted_duration):
+                    worker = 'W2'
+
+                else:
+                #if self.work_force_remaining[item_index] <= 0:
+                    self.available_time.remove(alloted_time)
+
                 alloted_time = alloted_time - self.granularity
+                #self.work_force_remaining[item_index] -= 1
                 # print (self.available_time)
             total_remove_count -= 1
         # print ("available_time ", self.available_time)
-        return
+        return worker
 
-    def remove_after_time(self, alloted_time, alloted_duration):
+    def remove_after_time(self, alloted_time, alloted_duration, work_force):
         total_remove_count = alloted_duration // self.granularity
         total_remove_count -= 1
         alloted_time = alloted_time + self.granularity
@@ -32,8 +64,22 @@ class Calculations():
         # print ("available_time ", self.available_time)
         while total_remove_count > 0:
             if alloted_time in self.available_time:
-                self.available_time.remove(alloted_time)
+
+                #item_index = self.available_time.index(alloted_time)
+
+                #if self.work_force_remaining[item_index] <= 0:
+                if not self.is_worker_busy(work_force, 'W1', alloted_time, alloted_duration):
+                    worker = 'W1'
+
+                elif not self.is_worker_busy(work_force, 'W2', alloted_time, alloted_duration):
+                    worker = 'W2'
+
+                else:
+                #if self.work_force_remaining[item_index] <= 0:
+                    self.available_time.remove(alloted_time)
+
                 alloted_time = alloted_time + self.granularity
+                #self.work_force_remaining[item_index] -= 1
 
                 # print (self.available_time)
             total_remove_count -= 1
@@ -69,8 +115,8 @@ class Calculations():
             self.total_service_time += self.service_time_mapping[service]
 
         for dictionary in alloted_time_duration:
-            self.remove_before_time(dictionary['alloted_time'])
-            self.remove_after_time(dictionary['alloted_time'], dictionary['alloted_duration'])
+            self.remove_before_time(dictionary['alloted_time'], dictionary['alloted_duration'], alloted_time_duration)
+            self.remove_after_time(dictionary['alloted_time'], dictionary['alloted_duration'], alloted_time_duration)
 
         print(self.available_time)
         today = date.today()
