@@ -90,9 +90,11 @@ def is_worker_busy(worker, alloted_time, alloted_duration, selected_date):
             w_alloted_time = appointment['alloted_time']
             w_alloted_duration = appointment['alloted_duration']
 
-            if (w_alloted_time <= alloted_time and alloted_time < (w_alloted_time + w_alloted_duration)) or (
-                    w_alloted_time <= (alloted_time + alloted_duration) and (w_alloted_time + w_alloted_duration) > (
-                    alloted_time + alloted_duration)):
+            #if (w_alloted_time <= alloted_time and alloted_time < (w_alloted_time + w_alloted_duration)) or (
+            #        w_alloted_time <= (alloted_time + alloted_duration) and (w_alloted_time + w_alloted_duration) > (
+            #        alloted_time + alloted_duration)):
+            if (alloted_time <= w_alloted_time and w_alloted_time < (alloted_time + alloted_duration)) or (
+                    w_alloted_time <= alloted_time and alloted_time < (w_alloted_time + w_alloted_duration)):
                 return True
 
     return False

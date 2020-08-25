@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>SHAGO</title>
+    <title>Shago</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -164,17 +164,11 @@
                                 {% csrf_token %}
                             <div class="form-row">
                                 <div class="form-group offset-xl-3 col-xl-6">
-                                    <select id="servicelist" name="services" class="form-control selectpicker" data-size="5" data-style="btn-success" data-width="100%" multiple   title="Select a Service"  >
+                                    <select id="servicelist" name="services" class="form-control selectpicker" sdata-size="6" data-style="btn-success" data-width="100%" multiple  data-actions-box="true" title="Select a Service" data-header="Select a Service"  >
                                         <option value="Hair Cutting">Hair Cutting</option>
                                         <option value="Shaving">Shaving</option>
-                                        <option value="Head Massage">Head Massage</option>
-										<option value="Charcoal">Charcoal</option>
-										<option value="Bleach">Bleach</option>
-										<option value="Hair Colour">Hair Colour</option>
-										<option value="Face Massage">Face Massage</option>
-										<option value="Face Scrub">Face Scrub</option>
-										<option value="Facial">Facial</option>
-                                        <option value="Hair Spa">Hair Spa</option>
+                                        <option value="Message">Message</option>
+                                        <option value="Spa">Spa</option>
                                     </select>
                                 </div>
                             </div>
@@ -213,7 +207,7 @@
                             </div>
                             <div class="form-row">
                                 <div class="form-group offset-xl-3  col-xl-6">
-                                    <input type="text" name="phoneno" class="form-control inputfield" id="phoneno" placeholder="Contact Number" autocomplete="off">
+                                    <input type="text" name="phoneno" class="form-control inputfield" id="phoneno" placeholder="contact number" autocomplete="off">
                                   </div>
                             </div>
 
@@ -234,110 +228,98 @@
 
                 <div class="row">
                         <div class="col-xl-6">
-<!--							<div class="slider_text text-center">-->
-<!--								<h3>Rate Card</h3>-->
-<!--							</div>-->
-						
                             <div class="single_service d-flex justify-content-between align-items-center">
                                 <div class="service_inner d-flex align-items-center">
-                                    <span>Simple Hair Cut</span>
+                                    <div class="thumb">
+                                            <img src="static/img/service/1.png" alt="">
+                                    </div>
+                                    <span>Men’s Facial</span>
                                 </div>
                                 <p>………………………..100₹</p>
-                            </div>
-							<div class="single_service d-flex justify-content-between align-items-center">
-                                <div class="service_inner d-flex align-items-center">
-                                    <span>Stylish Hair Cut</span>
-                                </div>
-                                <p>………………………..130₹</p>
-                            </div>
-							<div class="single_service d-flex justify-content-between align-items-center">
-                                <div class="service_inner d-flex align-items-center">
-                                    <span>Foam Shave</span>
-                                </div>
-                                <p>………………………..70₹</p>
-                            </div>
-							<div class="single_service d-flex justify-content-between align-items-center">
-                                <div class="service_inner d-flex align-items-center">
-                                    <span>Beard Style</span>
-                                </div>
-                                <p>………………………..80₹</p>
-                            </div>
-							<div class="single_service d-flex justify-content-between align-items-center">
-                                <div class="service_inner d-flex align-items-center">
-                                    <span>Kids Simple Hair Cut</span>
-                                </div>
-                                <p>………………………..80₹</p>
-                            </div>
-							<div class="single_service d-flex justify-content-between align-items-center">
-                                <div class="service_inner d-flex align-items-center">
-                                    <span>Kids Style Hair Cut</span>
-                                </div>
-                                <p>………………………..100₹</p>
-                            </div>
-							<div class="single_service d-flex justify-content-between align-items-center">
-                                <div class="service_inner d-flex align-items-center">
-                                    <span>Girl Hair Cut</span>
-                                </div>
-                                <p>………………………..100₹</p>
-                            </div>
-
-							<div class="single_service d-flex justify-content-between align-items-center">
-                                <div class="service_inner d-flex align-items-center">
-                                    <span>Champi-Takkal</span>
-                                </div>
-                                <p>………………………..100₹</p>
-                            </div>
-                            </div>
-                    <div class="col-xl-6">
-							<div class="single_service d-flex justify-content-between align-items-center">
-                                <div class="service_inner d-flex align-items-center">
-                                    <span>Head Massage</span>
-                                </div>
-                                <p>………………………..100₹</p>
-                            </div>
-							<div class="single_service d-flex justify-content-between align-items-center">
-                                <div class="service_inner d-flex align-items-center">
-                                    <span>Bleach</span>
-                                </div>
-                                <p>………………………..500/900₹</p>
-                            </div>
-							<div class="single_service d-flex justify-content-between align-items-center">
-                                <div class="service_inner d-flex align-items-center">
-                                    <span>Home Service</span>
-                                </div>
-                                <p>………………………..300/500₹</p>
-                            </div>
-							<div class="single_service d-flex justify-content-between align-items-center">
-                                <div class="service_inner d-flex align-items-center">
-                                    <span>Shahnaz Facial</span>
-                                </div>
-                                <p>………………………..2000₹</p>
-                            </div>
-							<div class="single_service d-flex justify-content-between align-items-center">
-                                <div class="service_inner d-flex align-items-center">
-                                    <span>Garnier/ l'oreal Colour</span>
-                                </div>
-                                <p>………………………..250/500₹</p>
                             </div>
                             <div class="single_service d-flex justify-content-between align-items-center">
                                 <div class="service_inner d-flex align-items-center">
-                                    <span>Moustache Setting</span>
+                                    <div class="thumb">
+                                            <img src="static/img/service/2.png" alt="">
+                                    </div>
+                                    <span>Clean Cut</span>
                                 </div>
-                                <p>………………………..30₹</p>
+                                <p>………………………..60₹</p>
                             </div>
                             <div class="single_service d-flex justify-content-between align-items-center">
                                 <div class="service_inner d-flex align-items-center">
+                                    <div class="thumb">
+                                            <img src="static/img/service/3.png" alt="">
+                                    </div>
+                                    <span>Close Shave</span>
+                                </div>
+                                <p>………………………..50₹</p>
+                            </div>
+                            <div class="single_service d-flex justify-content-between align-items-center">
+                                <div class="service_inner d-flex align-items-center">
+                                    <div class="thumb">
+                                            <img src="static/img/service/4.png" alt="">
+                                    </div>
+                                    <span>Razor Cut</span>
+                                </div>
+                                <p>………………………..50₹</p>
+                            </div>
+                            <div class="single_service d-flex justify-content-between align-items-center">
+                                <div class="service_inner d-flex align-items-center">
+                                    <div class="thumb">
+                                            <img src="static/img/service/5.png" alt="">
+                                    </div>
+                                    <span>Face Massage</span>
+                                </div>
+                                <p>………………………..100₹</p>
+                            </div>
+                        </div>
+                        <div class="col-xl-6">
+                            <div class="single_service d-flex justify-content-between align-items-center">
+                                <div class="service_inner d-flex align-items-center">
+                                    <div class="thumb">
+                                            <img src="static/img/service/6.png" alt="">
+                                    </div>
+                                    <span>Classic haircut</span>
+                                </div>
+                                <p>………………………..60₹</p>
+                            </div>
+                            <div class="single_service d-flex justify-content-between align-items-center">
+                                <div class="service_inner d-flex align-items-center">
+                                    <div class="thumb">
+                                            <img src="static/img/service/7.png" alt="">
+                                    </div>
+                                    <span>Haircut and shampoo</span>
+                                </div>
+                                <p>………………………..100₹</p>
+                            </div>
+                            <div class="single_service d-flex justify-content-between align-items-center">
+                                <div class="service_inner d-flex align-items-center">
+                                    <div class="thumb">
+                                            <img src="static/img/service/8.png" alt="">
+                                    </div>
+                                    <span>Hair treatment</span>
+                                </div>
+                                <p>………………………..100₹</p>
+                            </div>
+                            <div class="single_service d-flex justify-content-between align-items-center">
+                                <div class="service_inner d-flex align-items-center">
+                                    <div class="thumb">
+                                            <img src="static/img/service/9.png" alt="">
+                                    </div>
                                     <span>Beard trimming</span>
                                 </div>
                                 <p>………………………..60₹</p>
                             </div>
-							<div class="single_service d-flex justify-content-between align-items-center">
+                            <div class="single_service d-flex justify-content-between align-items-center">
                                 <div class="service_inner d-flex align-items-center">
-                                    <span>Javal/First Hair Cut</span>
+                                    <div class="thumb">
+                                            <img src="static/img/service/10.png" alt="">
+                                    </div>
+                                    <span>Beard and moustache</span>
                                 </div>
-                                <p>………………………..501₹</p>
+                                <p>………………………..60₹</p>
                             </div>
-
                         </div>
                         <div class="col-xl-12">
                                 <div class="book_btn text-center">
@@ -481,9 +463,9 @@
                             <p>Inspires employees and organizations to support causes they care <br>
                                 about. We do this to bring more resources to the nonprofits that are <br>
                                 changing our world.</p>
-<!--                                <div class="book_btn text-center">-->
-<!--                                    <a class="boxed-btn3" href="#testcollapse" data-toggle="collapse">Book Now</a>-->
-<!--                                </div>-->
+                                <div class="book_btn text-center">
+                                    <a class="boxed-btn3" href="#service-area">Book Now</a>
+                                </div>
                         </div>
                     </div>
                 </div>
@@ -509,18 +491,23 @@
                         <div class="col-xl-12">
                             <div class="section_title2 text-center mb-90">
                                 <i class="flaticon-scissors"></i>
-                                <h3>Our Salon Staff</h3>
+                                <h3>Our Cutter Masters</h3>
                             </div>
                         </div>
                     </div>
             <div class="row">
-                <div class="col-xl-3 col-md-6 col-lg-3 offset-xl-3 offset-md-6 offset-lg-3">
+                <div class="col-xl-3 col-md-6 col-lg-3">
                     <div class="single_master">
                         <div class="thumb">
                             <img src="static/img/team/1.png" alt="">
+                            <div class="social_link">
+                                <a href="#"><i class="fa fa-envelope"></i></a>
+                                <a href="#"><i class="fa fa-twitter"></i></a>
+                                <a href="#"><i class="fa fa-linkedin"></i></a>
+                            </div>
                         </div>
                         <div class="master_name text-center">
-                            <h3>Arbaz Salmai</h3>
+                            <h3>Macau Wilium</h3>
                             <p>Massage Master</p>
                         </div>
                     </div>
@@ -529,10 +516,47 @@
                     <div class="single_master">
                         <div class="thumb">
                             <img src="static/img/team/2.png" alt="">
+                            <div class="social_link">
+                                <a href="#"><i class="fa fa-envelope"></i></a>
+                                <a href="#"><i class="fa fa-twitter"></i></a>
+                                <a href="#"><i class="fa fa-linkedin"></i></a>
+                            </div>
                         </div>
                         <div class="master_name text-center">
-                            <h3>Ekbal Salmani</h3>
+                            <h3>Dan Jacky</h3>
                             <p>Mens Cut</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-md-6 col-lg-3">
+                    <div class="single_master">
+                        <div class="thumb">
+                            <img src="static/img/team/3.png" alt="">
+                            <div class="social_link">
+                                <a href="#"><i class="fa fa-envelope"></i></a>
+                                <a href="#"><i class="fa fa-twitter"></i></a>
+                                <a href="#"><i class="fa fa-linkedin"></i></a>
+                            </div>
+                        </div>
+                        <div class="master_name text-center">
+                            <h3>Luka Luka</h3>
+                            <p>Mens Cut</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-md-6 col-lg-3">
+                    <div class="single_master">
+                        <div class="thumb">
+                            <img src="static/img/team/4.png" alt="">
+                            <div class="social_link">
+                                <a href="#"><i class="fa fa-envelope"></i></a>
+                                <a href="#"><i class="fa fa-twitter"></i></a>
+                                <a href="#"><i class="fa fa-linkedin"></i></a>
+                            </div>
+                        </div>
+                        <div class="master_name text-center">
+                            <h3>Rona Dana</h3>
+                            <p>Ladies Cut</p>
                         </div>
                     </div>
                 </div>
@@ -554,7 +578,7 @@
                             </div>
                             <div class="find_text">
                                     <h3>Location</h3>
-                                    <p>Shop No. 34, U-2, Tanish Orchid, Charohli, Pune, India</p>
+                                    <p>200, A-block, Green road, USA</p>
                             </div>
                         </div>
                         <div class="single_find d-flex">
@@ -563,7 +587,7 @@
                             </div>
                             <div class="find_text">
                                     <h3>Call Us</h3>
-                                    <p>+91 9028442347</p>
+                                    <p>+10 378 478 2789</p>
                             </div>
                         </div>
                         <div class="single_find d-flex">
@@ -572,7 +596,12 @@
                             </div>
                             <div class="find_text">
                                     <h3>Mail Us</h3>
-                                    <p>shagosalon@gmail.com</p>
+                                    <p>contact@barbershop.com</p>
+                            </div>
+                        </div>
+                        <div class="single_find">
+                            <div class="book_btn">
+                                <a class="popup-with-form" href="#service-area">Make an Appointment</a>
                             </div>
                         </div>
 
@@ -594,7 +623,7 @@
                                     Join With Us
                                 </h3>
                                 <p class="footer_text doanar"> <a class="first" href="#">Make Appointment</a> <br>
-                                    <a href="#">+91 9028442347</a></p>
+                                    <a href="#">+10 378 478 2789</a></p>
 
                             </div>
                         </div>
@@ -603,9 +632,28 @@
                                 <h3 class="footer_title">
                                     address
                                 </h3>
-                                <p class="footer_text">Shop No. 34, U-2, Tanish Orchid, Charohli, Pune, India <br>
-                                    +91 9028442347 <br>
-                                    <a class="domain" href="#">shagosalon@gmail.com</a></p>
+                                <p class="footer_text">200, A-block, Green road, USA <br>
+                                    +10 367 267 2678 <br>
+                                    <a class="domain" href="#">contact@nonprofit.com</a></p>
+                                <div class="socail_links">
+                                    <ul>
+                                        <li>
+                                            <a href="#">
+                                                <i class="fa fa-facebook-square"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="fa fa-twitter"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="fa fa-instagram"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
 <!--                        <div class="col-xl-2 col-md-6 col-lg-2">-->

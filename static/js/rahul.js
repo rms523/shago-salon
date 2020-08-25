@@ -23,10 +23,10 @@ $(document).ready(function(){
     $(this).outerWidth($('#datepicker').outerWidth());
   });
 
-
-    $('select').selectpicker({
-        size: '10'
-    });
+//
+//    $('select').selectpicker({
+//        size: '5'
+//    });
 
     var selected_services;
     $('.selectpicker').on('changed.bs.select', function () {

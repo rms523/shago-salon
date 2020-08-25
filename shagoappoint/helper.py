@@ -7,7 +7,7 @@ class Calculations():
     start = 480
     end = 1320
     available_time = [x for x in range(start, end, 15)]
-    service_time_mapping = {'Hair Cutting': 15, 'Shaving': 15, 'Message': 15, 'Spa': 15}
+    service_time_mapping = {'Hair Cutting': 15, 'Shaving': 15, 'Head Massage': 15, 'Charcoal': 15, 'Bleach': 15, 'Hair Colour': 15, 'Face Massage': 15, 'Face Scrub': 15, 'Facial': 15, 'Hair Spa': 15}
     total_service_time = 0
     # work_force = 4
     # work_force_remaining = [4 for x in range(56)]
@@ -20,9 +20,15 @@ class Calculations():
             if appointment['worker'] == worker:
 
                 w_alloted_time = appointment['alloted_time']
-                w_alloted_duration = appointment['alloted_duration']
+                print ("w_alloted_time: ", w_alloted_time)
 
-                if (w_alloted_time <= alloted_time and alloted_time < (w_alloted_time + w_alloted_duration)) or (w_alloted_time  <= (alloted_time + alloted_duration) and (w_alloted_time + w_alloted_duration) > (alloted_time + alloted_duration)):
+                w_alloted_duration = appointment['alloted_duration']
+                print ("w_alloted_duration: ", w_alloted_duration)
+
+                print ("alloted_time: ", alloted_time)
+                print ("service time is: ", self.total_service_time)
+                #if (w_alloted_time <= alloted_time and alloted_time < (w_alloted_time + w_alloted_duration)) or (alloted_time  < w_alloted_time  and  (alloted_time + self.total_service_time) <= (w_alloted_time + w_alloted_duration)):
+                if (alloted_time <= w_alloted_time and w_alloted_time < (alloted_time + self.total_service_time))  or (w_alloted_time <= alloted_time and alloted_time < (w_alloted_time + w_alloted_duration)):
                     print(appointment['worker'])
                     return True
 
@@ -31,7 +37,7 @@ class Calculations():
 
     def remove_before_time(self, alloted_time, alloted_duration, work_force):
         total_remove_count = self.total_service_time // self.granularity
-        # print ("total_remove_count: ", total_remove_count)
+        print ("total_remove_count: ", total_remove_count)
         worker = ''
         while total_remove_count > 0:
             if alloted_time in self.available_time:
