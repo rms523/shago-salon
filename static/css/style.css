@@ -5961,13 +5961,9 @@ display:none;
   margin-bottom: 5%;
 }
 
-.close {
-  color: #fff; 
-  opacity: 1;
-}
 
 .modal-title {
-  color: white;
+  color: white !important;
 }
 
 
@@ -6084,10 +6080,6 @@ display:none;
     border-bottom-right-radius: .25rem;*/
 }
 
-.close {
-    color: #000;
-    opacity: 1;
-}
 
 .img-fluid {
     max-width: 100%;
@@ -6103,3 +6095,13 @@ display:none;
 }
 */
 /*# sourceMappingURL=style.css.map */
+
+.close {
+    color: #000 !important;
+    opacity: 1;
+}
+
+.timeclose {
+    color: #ccc !important;
+    opacity: 1;
+}

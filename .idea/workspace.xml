@@ -15,8 +15,6 @@
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shagoappoint/helper.py" beforeDir="false" afterPath="$PROJECT_DIR$/shagoappoint/helper.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shagoappoint/templates/shagoappoint/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/shagoappoint/templates/shagoappoint/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shagoappoint/templates/shagoappoint/home.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shagoappoint/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/shagoappoint/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/js/rahul.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/rahul.js" afterDir="false" />
     </list>

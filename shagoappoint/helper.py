@@ -7,7 +7,7 @@ class Calculations():
     start = 480
     end = 1320
     available_time = [x for x in range(start, end, 15)]
-    service_time_mapping = {'Hair Cutting': 15, 'Shaving': 15, 'Head Massage': 15, 'Charcoal': 15, 'Bleach': 15, 'Hair Colour': 15, 'Face Massage': 15, 'Face Scrub': 15, 'Facial': 15, 'Hair Spa': 15}
+    service_time_mapping = {'Hair Cutting': 15, 'Shaving': 15, 'Hair Colour' : 30, 'Head Massage': 30, 'Charcoal' : 30, 'Bleach' : 15, 'Face Massage' : 30, 'Face Scrub' : 15, 'Facial' : 30, 'Hair Spa' : 30}
     total_service_time = 0
     # work_force = 4
     # work_force_remaining = [4 for x in range(56)]

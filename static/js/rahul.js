@@ -3,7 +3,7 @@ $(document).ready(function(){
     date.setDate(date.getDate());
 
     $('#datepicker').datepicker({
-        dayNamesMin: ['SUN', 'MUN', 'TUE', 'WED', 'THU', 'FRI', 'SAT'],
+        dayNamesMin: ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'],
         dateFormat: 'yy-mm-dd',
         minDate: date,
         maxDate: '+4D',
@@ -44,7 +44,7 @@ $(document).ready(function(){
         if (!selected_services)
         {
 
-            $("#ErrorMessage").text("Error! Please select a service first.");
+            generate_error("Error! Please select a service first.");
             $('#datepicker').val('');
             return;
         }
@@ -53,7 +53,7 @@ $(document).ready(function(){
         {
 
             $('#datepicker').val('');
-            $("#ErrorMessage").text("Error! Please select a service first.");
+            generate_error("Error! Please select a service first.");
             return;
         }
 
@@ -198,6 +198,14 @@ $(document).ready(function(){
                         generate_error("Contact number must be 10 digit long.");
                         return;
                     }
+
+                    var a = /^[789]\d{9}$/;
+
+                    if (!a.test(phoneno))
+                        {
+                            generate_error("Contact number is invalid.");
+                            return;
+                        }
 
 
                     $.ajax({
