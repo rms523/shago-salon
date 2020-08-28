@@ -28,7 +28,7 @@ class Calculations():
                 print ("alloted_time: ", alloted_time)
                 print ("service time is: ", self.total_service_time)
                 #if (w_alloted_time <= alloted_time and alloted_time < (w_alloted_time + w_alloted_duration)) or (alloted_time  < w_alloted_time  and  (alloted_time + self.total_service_time) <= (w_alloted_time + w_alloted_duration)):
-                if (alloted_time <= w_alloted_time and w_alloted_time < (alloted_time + self.total_service_time))  or (w_alloted_time <= alloted_time and alloted_time < (w_alloted_time + w_alloted_duration)):
+                if (w_alloted_time <= alloted_time and alloted_time < (w_alloted_time + w_alloted_duration)):
                     print(appointment['worker'])
                     return True
 
@@ -39,26 +39,25 @@ class Calculations():
         total_remove_count = self.total_service_time // self.granularity
         print ("total_remove_count: ", total_remove_count)
         worker = ''
-        while total_remove_count > 0:
-            if alloted_time in self.available_time:
-                # print ("available")
-                #get the index of workforceremaining
-                #item_index = self.available_time.index(alloted_time)
-                if not self.is_worker_busy(work_force, 'W1', alloted_time, alloted_duration):
-                    worker = 'W1'
 
-                elif not self.is_worker_busy(work_force, 'W2', alloted_time, alloted_duration):
-                    worker = 'W2'
+        if alloted_time in self.available_time:
+            # print ("available")
+            #get the index of workforceremaining
+            #item_index = self.available_time.index(alloted_time)
+            if not self.is_worker_busy(work_force, 'W1', alloted_time, alloted_duration):
+                worker = 'W1'
 
-                else:
-                #if self.work_force_remaining[item_index] <= 0:
-                    self.available_time.remove(alloted_time)
+            elif not self.is_worker_busy(work_force, 'W2', alloted_time, alloted_duration):
+                worker = 'W2'
 
-                alloted_time = alloted_time - self.granularity
-                #self.work_force_remaining[item_index] -= 1
-                # print (self.available_time)
-            total_remove_count -= 1
-        # print ("available_time ", self.available_time)
+            else:
+            #if self.work_force_remaining[item_index] <= 0:
+                while total_remove_count > 0:
+                    if alloted_time in self.available_time:
+                        self.available_time.remove(alloted_time)
+                    alloted_time = alloted_time - self.granularity
+                    total_remove_count -= 1
+
         return worker
 
     def remove_after_time(self, alloted_time, alloted_duration, work_force):

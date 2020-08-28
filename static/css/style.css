@@ -1182,6 +1182,17 @@ h3 {
   line-height: 90px;
 }
 
+.service_area .slider_text span {
+  color: #ffffff;
+  font-family: "Playfair Display", serif;
+  font-size: 40px;
+  text-transform: capitalize;
+  letter-spacing: 2px;
+  font-weight: 900;
+  margin-bottom: 4px;
+  margin: 20px 0 16px 0;
+  line-height: 90px;
+}
 
 
 @media (max-width: 767px) {
