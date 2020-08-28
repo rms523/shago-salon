@@ -11,3 +11,6 @@ class appointment(models.Model):
     date = models.DateField()
     alloted_time = models.PositiveSmallIntegerField(default=0)
     alloted_duration = models.PositiveSmallIntegerField(default=0)
+
+    def __str__(self):
+        return f"{self.username}, {self.contact_no}, {self.worker}, {self.date}, {self.alloted_duration}, {self.alloted_duration}"

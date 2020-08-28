@@ -17,6 +17,10 @@ from django.contrib import admin
 from django.urls import path
 import shagoappoint.views
 
+admin.site.site_header = "Welcome to shago appointment record."
+admin.site.site_title = "Shago login"
+admin.site.index_title = "Shago DB"
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', shagoappoint.views.home, name='home' ),
