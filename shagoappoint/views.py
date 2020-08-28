@@ -5,6 +5,7 @@ from django.views.decorators.csrf import csrf_protect
 from .helper import Calculations
 from django.http import HttpResponse, JsonResponse, HttpResponseRedirect
 from django.template.loader import render_to_string
+import json
 # Create your views here.
 
 import math, random
@@ -112,6 +113,7 @@ def appointment_booking(request):
 
         services = services[0].split(',')
         services = [x.strip() for x in services]
+
         print("services list is: ", services)
         calculation = Calculations()
         alloted_duration = calculation.convert_services_to_time(services)
@@ -123,13 +125,30 @@ def appointment_booking(request):
             selected_time = 60 * hours + minutes + 12 * 60
 
         # generateOTP()
+        print ("selected_time: ", selected_time)
+        formatted_time = int(selected_time)
+        hour = formatted_time // 60
+        minutes = formatted_time % 60
+        if hour > 12:
+            hour = hour - 12
+            format = 'PM'
+        elif hour==12:
+            format = 'PM'
+        else:
+            format = 'AM'
 
+        if minutes != 0:
+            formatted_time = str(hour) + "." + str(minutes) + " " + format
+        else:
+            formatted_time = str(hour) + ".00 " + format
+
+        services = json.dumps(services)
         if not is_worker_busy('W1', selected_time, alloted_duration, selected_date):
 
-            booking = appointment(username=username, contact_no=phoneno, date=selected_date, alloted_time=selected_time, alloted_duration=alloted_duration, worker='W1')
+            booking = appointment(username=username, contact_no=phoneno, date=selected_date, alloted_time=selected_time, alloted_duration=alloted_duration, worker='W1', services=services, time=formatted_time)
             booking.save()
         else:
-            booking = appointment(username=username, contact_no=phoneno, date=selected_date, alloted_time=selected_time, alloted_duration=alloted_duration, worker='W2')
+            booking = appointment(username=username, contact_no=phoneno, date=selected_date, alloted_time=selected_time, alloted_duration=alloted_duration, worker='W2', services=services, time=formatted_time)
             booking.save()
         # global appointment_object
         # global OTP

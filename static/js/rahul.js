@@ -6,7 +6,7 @@ $(document).ready(function(){
         dayNamesMin: ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'],
         dateFormat: 'yy-mm-dd',
         minDate: date,
-        maxDate: '+4D',
+        maxDate: '+2D',
         //changeMonth: true
     //     disableDaysOfWeek: [0, 0],
     //     icons: {

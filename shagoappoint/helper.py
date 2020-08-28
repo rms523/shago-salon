@@ -6,9 +6,13 @@ class Calculations():
     granularity = 15
     start = 480
     end = 1320
-    available_time = [x for x in range(start, end, 15)]
     service_time_mapping = {'Hair Cutting': 15, 'Shaving': 15, 'Hair Colour' : 30, 'Head Massage': 30, 'Charcoal' : 30, 'Bleach' : 15, 'Face Massage' : 30, 'Face Scrub' : 15, 'Facial' : 30, 'Hair Spa' : 30}
-    total_service_time = 0
+
+    def __init__(self, available_time = [], total_service_time = 0 ):
+        if not available_time:
+            self.available_time = [x for x in range(self.start, self.end, 15)]
+        self.total_service_time = total_service_time
+
     # work_force = 4
     # work_force_remaining = [4 for x in range(56)]
 
@@ -20,16 +24,16 @@ class Calculations():
             if appointment['worker'] == worker:
 
                 w_alloted_time = appointment['alloted_time']
-                print ("w_alloted_time: ", w_alloted_time)
+                #print ("w_alloted_time: ", w_alloted_time)
 
                 w_alloted_duration = appointment['alloted_duration']
-                print ("w_alloted_duration: ", w_alloted_duration)
+                #print ("w_alloted_duration: ", w_alloted_duration)
 
-                print ("alloted_time: ", alloted_time)
-                print ("service time is: ", self.total_service_time)
+                #print ("alloted_time: ", alloted_time)
+                #print ("service time is: ", self.total_service_time)
                 #if (w_alloted_time <= alloted_time and alloted_time < (w_alloted_time + w_alloted_duration)) or (alloted_time  < w_alloted_time  and  (alloted_time + self.total_service_time) <= (w_alloted_time + w_alloted_duration)):
                 if (w_alloted_time <= alloted_time and alloted_time < (w_alloted_time + w_alloted_duration)):
-                    print(appointment['worker'])
+                    #print(appointment['worker'])
                     return True
 
         return False
@@ -44,6 +48,8 @@ class Calculations():
             # print ("available")
             #get the index of workforceremaining
             #item_index = self.available_time.index(alloted_time)
+            print("alloted_time_duration: ", alloted_time," ", alloted_duration)
+
             if not self.is_worker_busy(work_force, 'W1', alloted_time, alloted_duration):
                 worker = 'W1'
 
@@ -55,6 +61,7 @@ class Calculations():
                 while total_remove_count > 0:
                     if alloted_time in self.available_time:
                         self.available_time.remove(alloted_time)
+                        print ("removed: ", alloted_time)
                     alloted_time = alloted_time - self.granularity
                     total_remove_count -= 1
 
@@ -120,6 +127,7 @@ class Calculations():
             self.total_service_time += self.service_time_mapping[service]
 
         for dictionary in alloted_time_duration:
+            print ("dictionary: ", dictionary)
             self.remove_before_time(dictionary['alloted_time'], dictionary['alloted_duration'], alloted_time_duration)
             self.remove_after_time(dictionary['alloted_time'], dictionary['alloted_duration'], alloted_time_duration)
 
