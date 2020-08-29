@@ -15,7 +15,7 @@ import math, random
 
 def get_booking(selected_date):
     alloted_time_duration = []
-    # TODO check bookings.all
+
     #print (type(bookings))
     for booking in appointment.objects.all(): #.values('username', 'contact_no', 'date', 'alloted_time', 'alloted_duration'):
         #booking.date.strftime('%Y-%m-%d')
@@ -163,3 +163,6 @@ def appointment_booking(request):
     #
     # else:
     #     return JsonResponse({'status': 'failed'})
+
+
+

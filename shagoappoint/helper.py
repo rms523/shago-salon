@@ -4,8 +4,8 @@ from datetime import date, datetime
 
 class Calculations():
     granularity = 15
-    start = 480
-    end = 1320
+    start = 540
+    end = 1170
     service_time_mapping = {'Hair Cutting': 15, 'Shaving': 15, 'Hair Colour' : 30, 'Head Massage': 30, 'Charcoal' : 30, 'Bleach' : 15, 'Face Massage' : 30, 'Face Scrub' : 15, 'Facial' : 30, 'Hair Spa' : 30}
 
     def __init__(self, available_time = [], total_service_time = 0 ):
@@ -44,26 +44,28 @@ class Calculations():
         print ("total_remove_count: ", total_remove_count)
         worker = ''
 
-        if alloted_time in self.available_time:
+        # if alloted_time in self.available_time:
             # print ("available")
             #get the index of workforceremaining
             #item_index = self.available_time.index(alloted_time)
-            print("alloted_time_duration: ", alloted_time," ", alloted_duration)
+        print("alloted_time_duration: ", alloted_time," ", alloted_duration)
 
-            if not self.is_worker_busy(work_force, 'W1', alloted_time, alloted_duration):
-                worker = 'W1'
+        if not self.is_worker_busy(work_force, 'W1', alloted_time, alloted_duration):
+            worker = 'W1'
+            print("W1 not busy")
 
-            elif not self.is_worker_busy(work_force, 'W2', alloted_time, alloted_duration):
-                worker = 'W2'
+        elif not self.is_worker_busy(work_force, 'W2', alloted_time, alloted_duration):
+            worker = 'W2'
+            print("W2 not busy")
 
-            else:
-            #if self.work_force_remaining[item_index] <= 0:
-                while total_remove_count > 0:
-                    if alloted_time in self.available_time:
-                        self.available_time.remove(alloted_time)
-                        print ("removed: ", alloted_time)
-                    alloted_time = alloted_time - self.granularity
-                    total_remove_count -= 1
+        else:
+        #if self.work_force_remaining[item_index] <= 0:
+            while total_remove_count > 0:
+                if alloted_time in self.available_time:
+                    self.available_time.remove(alloted_time)
+                    print ("removed: ", alloted_time)
+                alloted_time = alloted_time - self.granularity
+                total_remove_count -= 1
 
         return worker
 
@@ -105,6 +107,8 @@ class Calculations():
             minutes = time % 60
             if hour > 12:
                 hour = hour - 12
+                format = 'PM'
+            elif hour == 12:
                 format = 'PM'
             else:
                 format = 'AM'

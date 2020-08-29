@@ -218,6 +218,12 @@ $(document).ready(function(){
                         console.log(response['html']);
                         //$('#select1').html(response['html'])
                         $('#status').html(response['html'])
+
+                        $('#book_user').text("Username: " + username);
+                        $('#book_date').text("Date: " + date_select);
+                        $('#book_service').text("Services: " + selected_services);
+//                        $('#book_time').text("Time: " + time_selected);
+
                         $('#otp_verification').modal({backdrop: 'static', keyboard: false});
 
 
@@ -245,6 +251,7 @@ $(document).ready(function(){
                         //$('.selectpicker').empty();
                         $(".selectpicker").selectpicker('refresh').empty();
                         location.reload();
+
                 }
 
 
