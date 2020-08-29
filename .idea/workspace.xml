@@ -12,12 +12,8 @@
   <component name="ChangeListManager">
     <list default="true" id="293c9458-d678-42b8-97f6-c93933a6a6ab" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shagoappoint/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/shagoappoint/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shagoappoint/helper.py" beforeDir="false" afterPath="$PROJECT_DIR$/shagoappoint/helper.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shagoappoint/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/shagoappoint/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shagoappoint/templates/shagoappoint/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/shagoappoint/templates/shagoappoint/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shagoappoint/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/shagoappoint/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/rahul.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/rahul.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,11 +96,11 @@
       <screen x="0" y="30" width="1920" height="1050" />
     </state>
     <state x="719" y="425" width="472" height="262" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.30.1920.1050/1920.0.1920.1080@0.30.1920.1050" timestamp="1594893630128" />
-    <state x="765" y="315" width="424" height="482" key="FileChooserDialogImpl" timestamp="1597936928567">
+    <state x="765" y="315" width="424" height="482" key="FileChooserDialogImpl" timestamp="1598677296582">
       <screen x="53" y="28" width="1867" height="1052" />
     </state>
     <state x="732" y="316" width="424" height="487" key="FileChooserDialogImpl/0.30.1920.1050/1920.0.1920.1080@0.30.1920.1050" timestamp="1594886792146" />
-    <state x="765" y="315" width="424" height="482" key="FileChooserDialogImpl/1920.0.1920.1080/53.28.1867.1052@53.28.1867.1052" timestamp="1597936928567" />
+    <state x="765" y="315" width="424" height="482" key="FileChooserDialogImpl/1920.0.1920.1080/53.28.1867.1052@53.28.1867.1052" timestamp="1598677296582" />
     <state x="651" y="217" width="992" height="733" key="SettingsEditor" timestamp="1597322710292">
       <screen x="53" y="28" width="1867" height="1052" />
     </state>

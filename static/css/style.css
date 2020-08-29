@@ -1259,11 +1259,11 @@ h3 {
   left: 0;
   left: -70px;
 }
-
 /* line 56, ../../Arafath/CL/CL september/205. Barber/HTML/scss/_slider.scss */
-.slider_area .single_slider .slider_text p::after {
+.service_area .slider_text p::after {
   right: -70px;
 }
+
 
 @media (min-width: 992px) and (max-width: 1200px) {
   /* line 35, ../../Arafath/CL/CL september/205. Barber/HTML/scss/_slider.scss */
