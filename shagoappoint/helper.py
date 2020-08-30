@@ -61,6 +61,8 @@ class Calculations():
         else:
         #if self.work_force_remaining[item_index] <= 0:
             while total_remove_count > 0:
+                #print("total_remove_count: ", total_remove_count)
+                #print("alloted_time: ", alloted_time)
                 if alloted_time in self.available_time:
                     self.available_time.remove(alloted_time)
                     print ("removed: ", alloted_time)

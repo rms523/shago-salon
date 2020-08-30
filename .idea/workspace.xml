@@ -12,7 +12,8 @@
   <component name="ChangeListManager">
     <list default="true" id="293c9458-d678-42b8-97f6-c93933a6a6ab" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shagoappoint/templates/shagoappoint/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/shagoappoint/templates/shagoappoint/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shagoappoint/helper.py" beforeDir="false" afterPath="$PROJECT_DIR$/shagoappoint/helper.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shagoappoint/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/shagoappoint/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

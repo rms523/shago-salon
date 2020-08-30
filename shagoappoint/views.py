@@ -121,7 +121,9 @@ def appointment_booking(request):
         hours, minutes = list(map(int, time.split(".")))
         if format=='AM':
             selected_time = 60 * hours + minutes
-        if format=='PM':
+        elif format=='PM' and hours == 12:
+            selected_time = 60 * hours + minutes
+        elif format=='PM':
             selected_time = 60 * hours + minutes + 12 * 60
 
         # generateOTP()
